@@ -44,10 +44,7 @@ const removeButton = () => {
    <li onClick={closeMenu}><Link to="/menu"><p className="link-text">Meny</p></Link></li>
    <li onClick={closeMenu}><Link to="/our-coffe"><p className="link-text">Vårt kaffe</p></Link></li>
    <li onClick={closeMenu}><Link to="/my-profile"><p className="link-text">Min profil</p></Link></li>
-   <li onClick={ () => {
-     closeMenu()
-     removeButton()
-   }}><Link to="/orderstatus"><p className="link-text">Orderstatus</p></Link></li>
+   <li onClick={closeMenu}><Link to="/orderstatus"><p className="link-text">Orderstatus</p></Link></li>
    </ul>
    </section>
    
