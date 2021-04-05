@@ -1,17 +1,23 @@
 
-import React from 'react';
+import React, { Component } from 'react';
+
 import "./App.css"
 import Nav from './components/Navbar/Navbar';
+import { connect } from 'react-redux'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Coffemenu from './components/menu';
 
 
-
-
-const App = () => {
-
-
-
+function App() {
+  
+  
   return (
-   <Nav /> 
-  )
+    <section>
+    <Nav />
+
+    </section>
+   
+  ) 
+
 }
 export default App;

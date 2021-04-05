@@ -1,53 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux'
+import './css/coffemenu.css'
+import Modal from 'react-modal'
+import Button from './button';
+import CartStatus from './cart'
+import button from './button';
+import ModalFunction from './Modal';
 
-//import {createStore} from 'redux';
-//import allBeans from '../../backend/coffe-reducer'
-
-
-
-
-// const store = createStore(allBeans);
-
-
-export default class Coffemenu extends React.Component {
+const Coffemenu = ( { products }) => {
   
-  state = {
-    loading: true,
-    coffe: null
-  }
 
-  async componentDidMount() {
-    const url = "http://localhost:8080/api/coffe";
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data.menu)
-    this.setState({ coffe: data.menu, loading: false });
-  }
-  
- 
-    
-    render() {
-    if (this.state.loading) {
-      return <div>loading...</div>;
-    }
 
-    if (!this.state.coffe) {
-      return <div>didn't get a person</div>;
-    }
+  return(
 
-    return (
-      <div>
 
-   {    this.state.coffe.map(coffedrink =>
-     <article key={coffedrink.id}>
-      <p>{coffedrink.coffe}</p>
-      <p>{coffedrink.description}</p>
-      </article>
-      )}
+
+<section>
+   
+ <section> 
+<ModalFunction />
+</section> 
+
+     {products.map(prod => (
+       <section key={prod.id} className="prod-articles">
+         <article>
+         <Button productData={prod} />
+         </article>
+         <article>
+         <p>{prod.coffe}</p>
+         </article>
+         <article>
+         <p>{prod.price}</p>
+         </article>
+       </section>
+     ))}
      
-      </div>
-    );
-  }
-}
+  
+
     
- 
+    </section>
+  )
+}
+
+const mapStateToProps = state => {
+return {
+  products: state.drink.products
+}
+}
+
+
+
+export default connect(mapStateToProps)(Coffemenu);
