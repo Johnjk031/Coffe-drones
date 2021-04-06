@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import { connect } from "react-redux"
 import CartItem from './cartitem'
+import { Link } from 'react-router-dom';
 
 const CartStatus = ( {cart} ) => {
     
     const [totalPrice, setTotalPrice] = useState(0);
-    const[totalItem, setTotalItems] = useState(0)
+    const[totalItem, setTotalItems] = useState(0);
+    const [isBought, setIsbought] = useState(false);
     
     useEffect(() => {
     let items = 0;
@@ -29,6 +31,19 @@ const CartStatus = ( {cart} ) => {
 
     }, [cart, totalPrice, setTotalPrice, setTotalItems])
     
+  
+    let buy = () => {
+       if (totalItem >= 1) {
+
+       setIsbought(true)
+            }
+    }
+
+    console.log(isBought)
+   
+    
+    
+
     return(
         <section>
         
@@ -41,6 +56,11 @@ const CartStatus = ( {cart} ) => {
         <section>
        <p>{totalPrice}</p>
        <p>{totalItem}</p>
+        </section>
+
+        <section>
+            <Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy}></Link>
+           
         </section>
         
         </section>

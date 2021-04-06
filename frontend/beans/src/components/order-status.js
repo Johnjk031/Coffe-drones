@@ -1,6 +1,10 @@
 import React from 'react'
 
-const MyStatus = () => {
+const MyStatus = (props) => {
+
+    console.log(props)
+
+
     return(
         <section>
             <p>My status</p>

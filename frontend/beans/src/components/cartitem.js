@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux'
 import { adjustQty, removeFromCart } from '../redux/coffe/coffe-actions';
 import './css/cartitem.css'
@@ -21,6 +21,7 @@ return (
         <p>{itemData.coffe}</p>
         <p>{itemData.price}</p>
         <input
+        className="inputnumber"
         min="0"
         type="number"
         id="qty"
@@ -28,8 +29,7 @@ return (
         value={input}
         onChange={onChangeHandler}
         />
-        <button>^</button>
-        <button>-</button>
+        
     </article>
 </section>
 )
