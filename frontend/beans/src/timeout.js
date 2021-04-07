@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 
 const Timer = (props) => {
 
-    const {initialMinute = 20,initialSeconds = 0} = props;
+    const {initialMinute = 20,initialSeconds = 59} = props;
     const [ minutes, setMinutes ] = useState(initialMinute);
     const [seconds, setSeconds ] =  useState(initialSeconds);
     useEffect(()=>{
@@ -35,7 +35,7 @@ const Timer = (props) => {
         <div>
         { minutes === 0 && seconds === 0
             ? null
-            : <h1> {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+            : <h1> {minutes}</h1> 
         }
         </div>
         
