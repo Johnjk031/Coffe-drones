@@ -10,6 +10,19 @@ export const addToCart = (itemID) => {
     };
 };
 
+
+export const addPurchase = (itemID) => {
+    return {
+        type: actionTypes.ADD_PURCHASE,
+        payload: {
+            id: itemID,
+        },
+    };
+};
+
+
+
+
 export const removeFromCart = (itemID) => {
     return {
         type: actionTypes.REMOVE_FROM_CART,

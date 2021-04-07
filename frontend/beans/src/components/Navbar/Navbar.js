@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom"
+import {BrowserRouter as Router, Route, Link} from "react-router-dom"
 import './Navbar.css'
 import Coffemenu from '../menu'
 import About from '../our-coffe';
@@ -12,15 +12,17 @@ import CartStatus from '../cart'
 
 
 
+
 const Nav = () => {
 
 const [openMenu, setOpenMenu] = useState(false)
 const [button, setButton] = useState(true)
 
 
-const HandleMenu = () => {
-setOpenMenu(true)
-}
+
+
+
+
 const closeMenu = () => {
   setOpenMenu(false)
 }
@@ -28,6 +30,7 @@ const closeMenu = () => {
 const removeButton = () => {
   setButton(false)
 }
+
 
   return (
     <Router className="Route-app" id="root">
@@ -66,10 +69,14 @@ const removeButton = () => {
   </Route>
   </section>
 
+
   <section className={openMenu ? "closed-menu" : "open-route"}>
-  <Route path="/orderstatus" component={MyStatus} exact>
-    <MyStatus />
-  </Route>
+
+ 
+   <Route path="/orderstatus" component={MyStatus} exact />
+  
+
+
    </section>
 
    
@@ -84,4 +91,7 @@ const removeButton = () => {
   </Router>
   );
 }
-export default Nav;
+
+
+
+export default(Nav);

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import './css/coffemenu.css'
-import Modal from 'react-modal'
 import Button from './button';
-import CartStatus from './cart'
-import button from './button';
+
 import ModalFunction from './Modal';
 
 const Coffemenu = ( { products }) => {

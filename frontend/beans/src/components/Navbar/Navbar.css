@@ -31,3 +31,7 @@ body {
 .closed-menu {
     display: none;
 }
+
+.hide-navbar {
+    display: none;
+}

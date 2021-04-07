@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import NoItems from './no-items'
+import OrderConfirm from './order-confirm'
 
-const MyStatus = (props) => {
-
-    console.log(props)
 
 
+
+const MyStatus = ({purchased}) => {
+
+if (purchased.length >= 1) {
+
+
+      return (
+        <div>
+          <OrderConfirm />
+        </div>
+      );
+    }
+
+  else{
     return(
-        <section>
-            <p>My status</p>
-        </section>
+      <NoItems />
     )
-}
+  }
 
-export default MyStatus
+  }  
+const mapStateToProps = state => {
+    return {
+      purchased: state.drink.purchased 
+    }
+    }
+export default connect(mapStateToProps)(MyStatus)

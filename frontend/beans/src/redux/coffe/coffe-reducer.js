@@ -74,6 +74,16 @@ const coffeReducer = (state = INITAL_STATE, action) => {
                  : [...state.cart, { ...item, qty: 1 }],
             };
 
+
+            case actionTypes.ADD_PURCHASE:
+        
+            return {
+                ...state,
+                purchased: state.cart.map(item => item.id === action.payload.id ?
+                    {...item, qty: +action.payload.qty }
+                    : item
+                    ), 
+            } 
      
 
         

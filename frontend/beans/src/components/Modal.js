@@ -18,7 +18,7 @@ const ModalFunction = ( {cart} ) => {
        setCartCount(count);
    }, [cart, cartCount]);
    
-console.log(cartCount)
+
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
 

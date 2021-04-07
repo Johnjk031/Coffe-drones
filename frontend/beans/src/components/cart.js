@@ -1,10 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import { connect } from "react-redux"
 import CartItem from './cartitem'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { addPurchase } from '../redux/coffe/coffe-actions';
+import { Link } from 'react-router-dom'
 
-const CartStatus = ( {cart} ) => {
+
+const CartStatus = ( {cart, addPurchase} ) => {
+
+
+    let history = useHistory();
+
     
+
     const [totalPrice, setTotalPrice] = useState(0);
     const[totalItem, setTotalItems] = useState(0);
     const [isBought, setIsbought] = useState(false);
@@ -35,14 +43,15 @@ const CartStatus = ( {cart} ) => {
     let buy = () => {
        if (totalItem >= 1) {
 
-       setIsbought(true)
+       addPurchase()
             }
     }
 
-    console.log(isBought)
-   
+
     
-    
+    let callFunctionTwo = () => {
+        history.push("/orderstatus");
+    }
 
     return(
         <section>
@@ -59,10 +68,22 @@ const CartStatus = ( {cart} ) => {
         </section>
 
         <section>
-            <Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy}></Link>
-           
+         <Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy}>Take my money</Link> 
+        {/*   
+        <button onClick={buy}>Take my money</button>
+        <button onClick={callFunctionTwo}>go next</button>
+        */}
         </section>
         
+    
+        
+    {/*<Router>
+   <Switch>
+
+    <Route exact path="/" component={()=>isBought?<MyStatus/> : <NoItems/>} />
+    </Switch>
+    </Router>*/}
+
         </section>
     )
 }
@@ -71,6 +92,11 @@ const mapStateToProps = state => {
         cart: state.drink.cart
     }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        addPurchase: (id) => dispatch(addPurchase(id))
+    }
+}
 
 
-export default connect(mapStateToProps)(CartStatus)
+export default connect(mapStateToProps, mapDispatchToProps)(CartStatus)
