@@ -38,7 +38,7 @@ const removeButton = () => {
 
  <section className={button ? "shown" : "closed-menu"}>
 
- <button onClick={() => setOpenMenu(!openMenu)} className={openMenu ? "navbar-btn-closed" : "navbar-btn"}>Open</button>
+
  
  </section>
 
@@ -50,7 +50,9 @@ const removeButton = () => {
    <li onClick={closeMenu}><Link to="/orderstatus"><p className="link-text">Orderstatus</p></Link></li>
    </ul>
    </section>
-   
+
+   <button onClick={() => setOpenMenu(!openMenu)} className={openMenu ? "navbar-btn-closed" : "navbar-btn"}>Open</button>
+
  <section className={openMenu ? "closed-menu" : "open-route"}>
  <Route path="/menu" component={Coffemenu} exact>
     <Coffemenu />
@@ -71,18 +73,14 @@ const removeButton = () => {
 
 
   <section className={openMenu ? "closed-menu" : "open-route"}>
-
- 
    <Route path="/orderstatus" component={MyStatus} exact />
-  
+     </section>
 
-
-   </section>
-
-   
+     <section className={openMenu ? "closed-menu" : "open-route"}>
   <Route path="/" component={Home} exact>
     <Home />
   </Route>
+  </section> 
 
   <Route path="/cart" component={CartStatus} exact>
     <CartStatus />

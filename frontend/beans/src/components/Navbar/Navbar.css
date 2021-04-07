@@ -1,7 +1,8 @@
 body {
+    position: relative;
     margin: 0;
     padding: 0;
-    background-color: coral;
+    
 }
 .Route-app {
     display: grid;
@@ -11,9 +12,13 @@ body {
 
 .navbar-btn {
     background-color: chartreuse;  
+    position: absolute;
+    top: 10px;
 }
 .navbar-btn-closed {
     background-color: burlywood;
+    position: absolute;
+    top: 10px;
 }
 .link-text {
     color: white;
@@ -21,11 +26,14 @@ body {
 .grid-menu {
   grid-column: 1/7;
   grid-row: 1/2;
-  height: 60rem;
+  height: 667px;
   display: flex;
+  position: relative;
+  width: 375px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .closed-menu {

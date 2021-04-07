@@ -1,4 +1,6 @@
 import React from 'react'
+import './confirm.css'
+
 
 const NoItems = () => {
 
@@ -6,8 +8,8 @@ const NoItems = () => {
 
 
     return(
-        <section>
-            <p>no items</p>
+        <section className="main-confirm">
+            <h1 className="no-items">Det finns inget i varukorgen</h1>
         </section>
     )
 }

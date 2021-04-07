@@ -17,9 +17,11 @@ const onChangeHandler = (e) => {
 
 return (
 <section className="test">
-    <article>
-        <p>{itemData.coffe}</p>
-        <p>{itemData.price}</p>
+    <article className="cart-item">
+        <p>{itemData.coffe}......................................</p>
+       <p>{itemData.price} kr</p>
+       </article>
+    
         <input
         className="inputnumber"
         min="0"
@@ -30,7 +32,7 @@ return (
         onChange={onChangeHandler}
         />
         
-    </article>
+    
 </section>
 )
 }

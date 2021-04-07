@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import Modal from 'react-modal'
 import CartStatus from './cart'
-
+import './css/coffemenu.css'
 import { connect } from 'react-redux'
 
 const ModalFunction = ( {cart} ) => {
@@ -25,9 +25,11 @@ const ModalFunction = ( {cart} ) => {
    return(
     <section className="modal">
     
-    <button onClick={ () => setModalIsOpen(true) }>{cartCount}</button>
+    <button className="modalbtn" onClick={ () => setModalIsOpen(true) }>{cartCount}</button>
     
-    <Modal isOpen={modalIsOpen} onRequestClose={ () => setModalIsOpen(false) }>
+    <Modal className="modal"isOpen={modalIsOpen} onRequestClose={ () => setModalIsOpen(false)}>
+     
+
      <CartStatus />
     </Modal>
     

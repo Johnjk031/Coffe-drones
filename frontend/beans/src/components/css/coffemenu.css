@@ -1,6 +1,66 @@
+.main-menu {
+background-color: #F3E4E1;
+}
+
 .prod-articles {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+}
+.bag-article {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: auto;
+    position: relative;
+    bottom: 7rem;
+    right: 5px;
+}
+.modal {
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    
 }
 
+.modal:focus {
+    border: none;
+}
+
+.modalbtn {
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgb(216, 85, 37);
+    width: 20px;
+    height: 20px;
+    color: white;
+    border: none;
+    position: relative;
+    left: 21.6rem;
+    bottom: 9.7rem;
+}
+
+.bryggkaffe{
+    background-color: tomato;
+}
+.menu-btn {
+    margin-left: 30px;
+}
+.menu-drinks {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 5rem;
+    bottom: 0.8rem;
+}
+.menu-price {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    left: 5rem;
+    bottom: 0.8rem;
+}

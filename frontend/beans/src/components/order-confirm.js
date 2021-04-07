@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
-import Timer from "../timeout";
+import Timer from "./timeout";
+import drone from "./drone.svg"
+import './confirm.css'
 
 const OrderConfirm = () => {
 
@@ -22,11 +24,25 @@ const OrderConfirm = () => {
 
     
     return(
-        <section>
-            <p>KUNG E DU</p>
-          <p>{getRandomString(8)}</p>
+        <section className="main-confirm">
+            <section className="ordernumber">
+            <p className="order-text">Ordernummer: #{getRandomString(8)}</p>
+            </section>
 
-        <Timer />
+          <img src={drone} alt="drone" />
+
+       <section className="confirm-section">
+        <h1 className="order-header">Din order är påväg</h1>
+       </section>
+
+      <section className="timer-section">
+      <Timer />
+      </section>
+
+
+        <section className="button-section">
+       <button className="confirm-btn">Ok cool</button>
+       </section>
 
         </section>
     )

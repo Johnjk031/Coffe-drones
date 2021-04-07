@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-
+import './confirm.css'
 
 
 const Timer = (props) => {
@@ -35,7 +35,7 @@ const Timer = (props) => {
         <div>
         { minutes === 0 && seconds === 0
             ? null
-            : <h1> {minutes}</h1> 
+            : <h1 className="timer"> {minutes} minuter</h1> 
         }
         </div>
         

@@ -4,6 +4,7 @@ import CartItem from './cartitem'
 import { useHistory } from 'react-router-dom';
 import { addPurchase } from '../redux/coffe/coffe-actions';
 import { Link } from 'react-router-dom'
+import './css/cartitem.css'
 
 
 const CartStatus = ( {cart, addPurchase} ) => {
@@ -63,12 +64,11 @@ const CartStatus = ( {cart, addPurchase} ) => {
         </section>
 
         <section>
-       <p>{totalPrice}</p>
-       <p>{totalItem}</p>
+       <p>Total.......................................................................{totalPrice}</p>
         </section>
 
-        <section>
-         <Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy}>Take my money</Link> 
+        <section className="link-section">
+        <button className="buy-link"><Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy} style={{ textDecoration: 'none' }, {color: 'white'}}>Take my money</Link></button>
         {/*   
         <button onClick={buy}>Take my money</button>
         <button onClick={callFunctionTwo}>go next</button>

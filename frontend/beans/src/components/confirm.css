@@ -1,0 +1,53 @@
+.main-confirm {
+    margin-bottom: 20px;
+    background-color: #E5674E;
+    height: 667px;
+}
+.order-text {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    position: relative;
+    top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+.ordernumber {
+    display: flex;
+    justify-content: center;
+}
+.confirm-section {
+    display: flex;
+    justify-content: center;
+}
+.order-header {
+    color: white;
+}
+.timer-section {
+    display: flex;
+    justify-content: center;
+}
+.timer {
+    color: white;
+}
+
+.button-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.confirm-btn {
+    width: 184px;
+height: 55px;
+border-radius: 50px;
+}
+.no-items {
+    margin-block-start: 0;
+    margin-block-end: 0;   
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    position: relative;
+    top: 14rem;
+}

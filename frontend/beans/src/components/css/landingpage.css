@@ -1,0 +1,33 @@
+.home-page {
+    margin-top: 1px;
+    grid-column: 1/7;
+    grid-row: 1/10;
+    background-color: #0E927D;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 667px;
+    width: 375px;
+}
+.landing-logo-section {
+    background-color: #0E927D;
+   
+    bottom: 25rem;
+    left: 4.5rem;
+   width: 100px;
+    }
+
+.right {
+    display: flex;
+    justify-content: flex-start;
+    width: 375px;    
+}
+
+.bean {
+    position: relative;
+    width: 2rem;
+    right: 8.3rem;
+    top: 16.2rem;
+}
+
+
+
