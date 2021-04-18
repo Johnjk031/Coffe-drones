@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
 .main-confirm {
     margin-bottom: 20px;
     background-color: #E5674E;
     height: 667px;
+    font-family: 'PT Serif', serif;
 }
 .order-text {
     margin-block-start: 0;
@@ -20,15 +23,34 @@
     display: flex;
     justify-content: center;
 }
+
+.confirm-article {
+    width: 16rem;
+    text-align: center;
+    height: 3rem;
+    position: relative;
+    bottom: 5rem;
+}
+
+.drone {
+    margin-top: 3rem;
+}
+
 .order-header {
     color: white;
+    font-size: 36px;
 }
 .timer-section {
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 4rem;
 }
 .timer {
     color: white;
+    font-size: 21px;
+    margin-block-start: 0;
+    margin-inline-end: 0;
 }
 
 .button-section {
@@ -41,7 +63,11 @@
     width: 184px;
 height: 55px;
 border-radius: 50px;
+margin-top: 5.5rem;
+border: none;
+font-size: 20px;
 }
+
 .no-items {
     margin-block-start: 0;
     margin-block-end: 0;   
@@ -50,4 +76,5 @@ border-radius: 50px;
     color: white;
     position: relative;
     top: 14rem;
+    font-family: 'PT Serif', serif;
 }

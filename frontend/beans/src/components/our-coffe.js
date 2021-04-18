@@ -4,6 +4,7 @@ import header from './graphics-header.svg'
 import eva from './eva.jpeg'
 import footer from './graphics-footer.svg'
 
+
 const About = () => {
     return (
         <section>
@@ -15,7 +16,7 @@ const About = () => {
 
                 <section>
 
-                <p className="coffe-text"><strong>Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio, grounds dripper, crema, strong whipped, variety extra iced id lungo half and half mazagran. Pumpkin spice.</strong></p>
+                <p className="strong-coffe-text">Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio, grounds dripper, crema, strong whipped, variety extra iced id lungo half and half mazagran. Pumpkin spice.</p>
 
 
 
@@ -33,7 +34,7 @@ const About = () => {
             <article className="flex-our-coffe">
                 <img className="eva" src={eva} alt="eva" width="74px" height="74px" />
                 <h2>Eva Cortado</h2>
-                <p>VD och Grundare</p>
+                <p>VD & Grundare</p>
             </article>
             </section>
               <img src={footer} alt="footer" />

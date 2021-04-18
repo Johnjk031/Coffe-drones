@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { connect } from 'react-redux'
 import { adjustQty, removeFromCart } from '../redux/coffe/coffe-actions';
 import './css/cartitem.css'
-
+import './css/coffemenu.css'
 
 const CartItem = ({ itemData, adjustQty }) => {
 
@@ -18,13 +18,14 @@ const onChangeHandler = (e) => {
 return (
 <section className="test">
     <article className="cart-item">
-        <p>{itemData.coffe}......................................</p>
+        <p className="cofe-p">{itemData.coffe}</p>
        <p>{itemData.price} kr</p>
        </article>
     
         <input
         className="inputnumber"
         min="0"
+        max="9"
         type="number"
         id="qty"
         name="qty"

@@ -7,6 +7,7 @@
     background-repeat: no-repeat;
     height: 667px;
     width: 375px;
+    overflow: hidden;
 }
 .landing-logo-section {
     background-color: #0E927D;

@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
 .main-menu {
 background-color: #F3E4E1;
+height: 667px;
+overflow: hidden;
+overflow-y: scroll;
+font-family: 'PT Serif', serif;
 }
 
 .prod-articles {
@@ -7,6 +13,7 @@ background-color: #F3E4E1;
     flex-direction: row;
     justify-content: flex-start;
 }
+/*
 .bag-article {
     background-color: black;
     width: 50px;
@@ -19,34 +26,58 @@ background-color: #F3E4E1;
     bottom: 7rem;
     right: 5px;
 }
+*/
 .modal {
-    width: 375px;
+    width: 325px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    
+    top: 5rem;
+    border: none;
+    height: 500px;
+    background-color: rgb(243, 233, 233);
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
-.modal:focus {
-    border: none;
+.hide {
+    display: none;
 }
 
 .modalbtn {
     border-radius: 50%;
     text-align: center;
-    background-color: rgb(216, 85, 37);
-    width: 20px;
-    height: 20px;
-    color: white;
+    background-color: #2F2926;
+    width: 60px;
+    height: 60px;
     border: none;
+    border-radius: 50%;
     position: relative;
-    left: 21.6rem;
-    bottom: 9.7rem;
+    bottom: 6.7rem;
+    left: 19rem;
 }
 
-.bryggkaffe{
-    background-color: tomato;
+.modal-img {
+    position: relative;
+    top: 0.6rem;
 }
+
+.module-count {
+    border-radius: 50%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(226, 106, 85);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 2.4rem;
+    left: 2rem;
+}
+
+
 .menu-btn {
     margin-left: 30px;
 }
@@ -55,12 +86,68 @@ background-color: #F3E4E1;
     margin-right: auto;
     position: relative;
     left: 5rem;
-    bottom: 0.8rem;
+    bottom: 0.2rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 19px;
+    font-weight: 700;
 }
+.menu-description {
+    font-size: 10px;
+    position: relative;
+    left: 5rem;
+    bottom: 0.6rem;
+}
+
 .menu-price {
     margin-left: auto;
     margin-right: auto;
     position: relative;
     left: 5rem;
     bottom: 0.8rem;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.price-1 {
+position: relative;
+right: 6px;
+}
+
+.price-2 {
+    position: relative;
+    right: 6px;
+    }
+
+.price-3 {
+    position: relative;
+    right: 6px;
+}
+.price-4 {
+    position: relative;
+    right: 14px;
+}
+.price-5 {
+    position: relative;
+    right: 6px;
+}
+.price-6 {
+    position: relative;
+    right: 6px;
+}
+.add-btn {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+font-size: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #2F2926;
+color: white;
+border: none;
+}
+.menu-footer {
+    position: relative;
+    top: 2.3rem;
 }

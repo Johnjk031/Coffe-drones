@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom"
+import {BrowserRouter as Router, Route, NavLink} from "react-router-dom"
 import './Navbar.css'
 import Coffemenu from '../menu'
 import About from '../our-coffe';
@@ -7,7 +7,8 @@ import MyProfile from '../my-profile';
 import MyStatus from '../order-status';
 import Home from '../landing-page';
 import CartStatus from '../cart'
-
+import open from '../bars-solid.svg'
+import closed from '../times-solid.svg'
 
 
 
@@ -27,9 +28,7 @@ const closeMenu = () => {
   setOpenMenu(false)
 }
 
-const removeButton = () => {
-  setButton(false)
-}
+
 
 
   return (
@@ -38,20 +37,26 @@ const removeButton = () => {
 
  <section className={button ? "shown" : "closed-menu"}>
 
-
+{/*          <img src={open} alt="open" />     */}
  
  </section>
 
-   <section className={openMenu ? "grid-menu" : "closed-menu"}>
-   <ul>
-   <li onClick={closeMenu}><Link to="/menu"><p className="link-text">Meny</p></Link></li>
-   <li onClick={closeMenu}><Link to="/our-coffe"><p className="link-text">Vårt kaffe</p></Link></li>
-   <li onClick={closeMenu}><Link to="/my-profile"><p className="link-text">Min profil</p></Link></li>
-   <li onClick={closeMenu}><Link to="/orderstatus"><p className="link-text">Orderstatus</p></Link></li>
+   <section className={openMenu ? "open-menu" : "closed-menu"}>
+   <ul className="menu-link-list">
+   <li onClick={closeMenu}><NavLink to="/menu" className="link-text" style={{ fontSize: '32px' }}>Meny</NavLink></li>
+   <div className="li-line"></div>
+   <li onClick={closeMenu}><NavLink to="/our-coffe" className="link-text" style={{ fontSize: '32px' }}>Vårt kaffe</NavLink></li>
+   <div className="li-line"></div>
+   <li onClick={closeMenu}><NavLink to="/my-profile" className="link-text" style={{ fontSize: '32px' }}>Min profil</NavLink></li>
+   <div className="li-line"></div>
+   <li onClick={closeMenu}><NavLink to="/orderstatus" className="link-text" style={{ fontSize: '32px' }}>Orderstatus</NavLink></li>
+   
    </ul>
    </section>
 
-   <button onClick={() => setOpenMenu(!openMenu)} className={openMenu ? "navbar-btn-closed" : "navbar-btn"}>Open</button>
+   <section onClick={() => setOpenMenu(!openMenu)} className="navbar-secton">
+   <article>{openMenu ? <img className="img-closed" src={closed} alt="closed" /> : <img className="img-open" src={open} alt="open" />}</article>
+   </section>
 
  <section className={openMenu ? "closed-menu" : "open-route"}>
  <Route path="/menu" component={Coffemenu} exact>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addToCart } from "../redux/coffe/coffe-actions"
+import './css/coffemenu.css'
 
 const Button = ({ addToCart, productData }) => {
   
@@ -8,7 +9,7 @@ const Button = ({ addToCart, productData }) => {
     return(
       <section>
      
-       <button onClick={() => addToCart(productData.id)}>+</button>
+       <button className="add-btn" onClick={() => addToCart(productData.id)}>+</button>
        
       </section>
     )

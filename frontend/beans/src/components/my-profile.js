@@ -1,10 +1,10 @@
 import React from 'react'
-
+import './profile.css'
 
 const MyProfile = () => {
     return(
-        <section>
-            <p>My profile</p>
+        <section className="main-g">
+            <h1 className="g-text">Det blir G för min del</h1>
         </section>
     )
 }

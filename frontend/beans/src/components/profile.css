@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+.main-g {
+    background-color: #F3E4E1;
+    height: 667px;
+}
+.g-text {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(100, 80, 80);
+    position: relative;
+    top: 14rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: 'PT Serif', serif;
+}

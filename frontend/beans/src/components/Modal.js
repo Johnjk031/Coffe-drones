@@ -4,6 +4,7 @@ import Modal from 'react-modal'
 import CartStatus from './cart'
 import './css/coffemenu.css'
 import { connect } from 'react-redux'
+import bag from './bag.svg'
 
 const ModalFunction = ( {cart} ) => {
    
@@ -23,11 +24,11 @@ const ModalFunction = ( {cart} ) => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
    return(
-    <section className="modal">
+    <section>
     
-    <button className="modalbtn" onClick={ () => setModalIsOpen(true) }>{cartCount}</button>
+    <button className="modalbtn" onClick={ () => setModalIsOpen(true) }><img className="modal-img" src={bag} alt="bag" /><button className="module-count">{cartCount}</button></button>
     
-    <Modal className="modal"isOpen={modalIsOpen} onRequestClose={ () => setModalIsOpen(false)}>
+    <Modal isOpen={modalIsOpen} onRequestClose={ () => setModalIsOpen(false)} className={modalIsOpen ? "modal" : "hide"}>
      
 
      <CartStatus />

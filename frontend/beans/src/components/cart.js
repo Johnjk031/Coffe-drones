@@ -56,24 +56,29 @@ const CartStatus = ( {cart, addPurchase} ) => {
 
     return(
         <section>
-        
-        <section> 
+            <section className="your-order">
+            <h1>Din beställning</h1>
+            </section>
+
+        <section className="selected-coffe"> 
         { cart.map((item) =>(
         <CartItem key={item.id} itemData={item}/>
         ))}
         </section>
 
-        <section>
-       <p>Total.......................................................................{totalPrice}</p>
+       
+        <section className="price-section">
+       <p className="total-price">Total......................................... {totalPrice}</p>
         </section>
 
         <section className="link-section">
-        <button className="buy-link"><Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy} style={{ textDecoration: 'none' }, {color: 'white'}}>Take my money</Link></button>
+        <button className="buy-link"><Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy} style={{ textDecoration: 'none' }} className="link-text">Take my money</Link></button>
         {/*   
         <button onClick={buy}>Take my money</button>
         <button onClick={callFunctionTwo}>go next</button>
         */}
         </section>
+     
         
     
         

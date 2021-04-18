@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import './css/coffemenu.css'
 import Button from './button';
-import bag from './bag.svg'
 import header from './graphics-header.svg'
 import footer from './graphics-footer.svg'
 
 
 import ModalFunction from './Modal';
-import button from './button';
+
 
 const Coffemenu = ( { products }) => {
   
@@ -22,9 +21,11 @@ const Coffemenu = ( { products }) => {
 
 <img src={header} alt="header" />
 
+{/*
 <section className="bag-article">
 <img src={bag} alt="bag" />
 </section>
+*/}
 
  <section> 
 <ModalFunction />
@@ -37,16 +38,17 @@ const Coffemenu = ( { products }) => {
          </article>
          <article>
          <p className="menu-drinks">{prod.coffe}</p>
+         <p className="menu-description">{prod.description}</p>
          </article>
          <article className="menu-price">
-         <p>{prod.price}</p>
+         <p className={`price-${prod.id}`}>{prod.price}</p>
          </article>
        </section>
      ))}
      
   
 
-     <img src={footer} alt="footer" />
+     <img className="menu-footer" src={footer} alt="footer" />
     </section>
   )
 }

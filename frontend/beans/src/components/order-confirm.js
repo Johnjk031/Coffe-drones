@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React from "react"
 import Timer from "./timeout";
 import drone from "./drone.svg"
 import './confirm.css'
@@ -29,10 +29,12 @@ const OrderConfirm = () => {
             <p className="order-text">Ordernummer: #{getRandomString(8)}</p>
             </section>
 
-          <img src={drone} alt="drone" />
+          <img className="drone" src={drone} alt="drone" />
 
        <section className="confirm-section">
-        <h1 className="order-header">Din order är påväg</h1>
+           <article className="confirm-article">
+        <h1 className="order-header">Din beställning är påväg</h1>
+        </article>
        </section>
 
       <section className="timer-section">
@@ -41,7 +43,7 @@ const OrderConfirm = () => {
 
 
         <section className="button-section">
-       <button className="confirm-btn">Ok cool</button>
+       <button className="confirm-btn">Ok, cool!</button>
        </section>
 
         </section>
