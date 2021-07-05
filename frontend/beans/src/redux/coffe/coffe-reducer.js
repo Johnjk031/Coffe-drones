@@ -2,54 +2,19 @@ import * as actionTypes from './coffe-types';
 
 
 const INITAL_STATE = {
-    products: [
-        {
-            "id": 1,
-            "coffe": "Bryggkaffe",
-            "description": "Bryggd på månadens bönor",
-            "price": 49
-        },
-
-        {
-            "id": 2,
-            "coffe": "Caffè Doppio",
-            "description": "Bryggd på månadens bönor",
-            "price": 49
-        },
-
-        {
-            "id": 3,
-            "coffe": "Cappuccino",
-            "description": "Bryggd på månadens bönor",
-            "price": 49
-        },
-
-        {
-            "id": 4,
-            "coffe": "Latte Macchiato",
-            "description": "Bryggd på månadens bönor",
-            "price": 49
-        },
-
-        {
-            "id": 5,
-            "coffe": "Kaffe Latte",
-            "description": "Bryggd på månadens bönor",
-            "price": 49
-        },
-
-        {
-            "id": 6,
-            "coffe": "Cortado",
-            "description": "Bryggd på månadens bönor",
-            "price": 39
-        }
-    ], // id, coffe, description, price
+    products: [], // id, coffe, description, price
     loading: false,
     cart: [],
     currentItem: null,
-    purchased: []
+    purchased: [],
+    user: {
+        online: false
+       },
+    orderNumber: null,
+    onlinePurchased: []
 }
+
+let userStatus = INITAL_STATE.user
 
 
 const coffeReducer = (state = INITAL_STATE, action) => {
@@ -83,6 +48,7 @@ const coffeReducer = (state = INITAL_STATE, action) => {
                     {...item, qty: +action.payload.qty }
                     : item
                     ), 
+                    cart: []
             } 
      
 
@@ -105,34 +71,73 @@ const coffeReducer = (state = INITAL_STATE, action) => {
             };
 
 
+
+
+
+
+            
+            case actionTypes.SIGN_IN:
+
+                return {...state, user: action.payload}
+                
+        
+
+
+
+
+
+
+        case actionTypes.SIGN_OUT:
+
+    
+            return {...state, user: {
+                online: false
+               }}
+
+
+
+
+
+
+
+
+
+
         case actionTypes.LOAD_CURRENT_ITEM:
             return {
                 ...state,
                 currentItem: action.payload,
             };
 
-        case actionTypes.API_LOADING:
-                return {
-                    ...state,
-                    loading: true
-                }
+      
+          
+            case actionTypes.ADD_TO_PRODUCTS: 
+            
+            return {...state, products: action.payload}
         
-        
-        
-            case actionTypes.GET_API:
-            return {
-                ...state,
-                items: action.payload,
-                loading: false
+            
+
+            case actionTypes.ADD_ORDER_NUMBER: 
+            
+            return {...state, orderNumber: action.payload}
+
+
+            case actionTypes.ONLINE_PURCHASED: 
+            
+            if (state.user.online
+               ) {
+                return {...state, onlinePurchased: state.purchased}
             }
-
-
-
+            
 
 
         default:
             return state;
-    }
+    
 }
-
+}
+  
+export const checkUser = () => {
+    return userStatus;
+} 
 export default coffeReducer; 

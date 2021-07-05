@@ -2,23 +2,13 @@ import React from "react"
 import Timer from "./timeout";
 import drone from "./drone.svg"
 import './confirm.css'
+import store from '../redux/store'
 
 const OrderConfirm = () => {
 
    
-   
+    let testVar = store.getState().drink.orderNumber
     
-
-    function getRandomString(length) {
-        var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var result = '';
-        for ( var i = 0; i < length; i++ ) {
-            result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
-        }
-        return result;
-    }
-
-
 
 
 
@@ -26,7 +16,7 @@ const OrderConfirm = () => {
     return(
         <section className="main-confirm">
             <section className="ordernumber">
-            <p className="order-text">Ordernummer: #{getRandomString(8)}</p>
+            <p className="order-text">Ordernummer: #{testVar}</p>
             </section>
 
           <img className="drone" src={drone} alt="drone" />

@@ -9,6 +9,8 @@ import Home from '../landing-page';
 import CartStatus from '../cart'
 import open from '../bars-solid.svg'
 import closed from '../times-solid.svg'
+import Form from '../forms';
+import SignedUp from '../signUpSuccess';
 
 
 
@@ -47,7 +49,7 @@ const closeMenu = () => {
    <div className="li-line"></div>
    <li onClick={closeMenu}><NavLink to="/our-coffe" className="link-text" style={{ fontSize: '32px' }}>Vårt kaffe</NavLink></li>
    <div className="li-line"></div>
-   <li onClick={closeMenu}><NavLink to="/my-profile" className="link-text" style={{ fontSize: '32px' }}>Min profil</NavLink></li>
+   <li onClick={closeMenu}><NavLink to="/forms" className="link-text" style={{ fontSize: '32px' }}>Min profil</NavLink></li>
    <div className="li-line"></div>
    <li onClick={closeMenu}><NavLink to="/orderstatus" className="link-text" style={{ fontSize: '32px' }}>Orderstatus</NavLink></li>
    
@@ -71,8 +73,8 @@ const closeMenu = () => {
 </section>
 
 <section className={openMenu ? "closed-menu" : "open-route"}>
-  <Route path="/my-profile" component={MyProfile} exact>
-    <MyProfile />
+  <Route path="/forms" component={Form} exact>
+    <Form />
   </Route>
   </section>
 
@@ -91,10 +93,21 @@ const closeMenu = () => {
     <CartStatus />
   </Route>
 
+  <section className={openMenu ? "closed-menu" : "open-route"}>
+  <Route path="/my-profile" component={MyProfile} exact>
+    <MyProfile />
+  </Route>
+  </section>
+
+  <section className={openMenu ? "closed-menu" : "open-route"}>
+  <Route path="/signed-up" component={SignedUp} exact>
+    <SignedUp />
+  </Route>
+</section>
   </Router>
   );
 }
 
 
 
-export default(Nav);
+export default Nav;

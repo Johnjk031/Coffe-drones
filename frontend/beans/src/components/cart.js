@@ -2,14 +2,15 @@ import React, {useState, useEffect} from 'react'
 import { connect } from "react-redux"
 import CartItem from './cartitem'
 import { useHistory } from 'react-router-dom';
-import { addPurchase } from '../redux/coffe/coffe-actions';
+import { addPurchase, addOrderNumber, onlinePurchased } from '../redux/coffe/coffe-actions';
 import { Link } from 'react-router-dom'
 import './css/cartitem.css'
 
 
-const CartStatus = ( {cart, addPurchase} ) => {
+const CartStatus = ( {cart, addPurchase, addOrderNumber, onlinePurchased} ) => {
 
 
+    
     let history = useHistory();
 
     
@@ -40,11 +41,28 @@ const CartStatus = ( {cart, addPurchase} ) => {
 
     }, [cart, totalPrice, setTotalPrice, setTotalItems])
     
+
+
+
+    function getRandomString(length) {
+        var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = '';
+        for ( var i = 0; i < length; i++ ) {
+            result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+        }
+        return result;
+    }
+
+
+
+
   
     let buy = () => {
        if (totalItem >= 1) {
 
        addPurchase()
+       addOrderNumber(getRandomString(8))
+       onlinePurchased()
             }
     }
 
@@ -99,7 +117,11 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        addPurchase: (id) => dispatch(addPurchase(id))
+        addPurchase: (id) => dispatch(addPurchase(id)),
+        
+        addOrderNumber: (id) => dispatch(addOrderNumber(id)),
+
+        onlinePurchased: (id) => dispatch(onlinePurchased(id))
     }
 }
 

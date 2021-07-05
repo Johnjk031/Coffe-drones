@@ -49,21 +49,39 @@ export const loadCurrentItem = (item) => {
     };
 };
 
-{/*
-export const apiLoading = () => {
-    return {
-        type: API_LOADING,
-    }
-}
 
-export const getApi = () => dispatch => {
-dispatch(apiLoading());
-axios
-.get('http://localhost:8080/api/coffe')
-.then(res =>
-    dispatch({
-     type: GET_API,
-     payload: res.data
-    })
-    )
-} */}
+export const addToProducts = (product) => {
+    return {
+        type: actionTypes.ADD_TO_PRODUCTS,
+        payload: product,
+    };
+};
+
+export const signIn = (item) => {
+    return {
+        type: actionTypes.SIGN_IN,
+        payload: item,
+    };
+};
+export const signOut = (item) => {
+    return {
+        type: actionTypes.SIGN_OUT,
+        payload: item,
+    };
+};
+
+export const addOrderNumber = (item) => {
+    return {
+        type: actionTypes.ADD_ORDER_NUMBER,
+        payload: item,
+    };
+};
+
+export const onlinePurchased = (item) => {
+    return {
+        type: actionTypes.ONLINE_PURCHASED,
+        payload: item,
+    };
+};
+
+
