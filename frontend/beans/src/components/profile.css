@@ -3,6 +3,11 @@
 .main-g {
     background-color: #F3E4E1;
     height: 667px;
+    margin-top: 0;
+    font-family: 'PT Serif', serif;
+}
+.form-wrapper {
+    height: 371px;
 }
 .g-text {
     text-align: center;
@@ -13,4 +18,117 @@
     margin-block-start: 0;
     margin-block-end: 0;
     font-family: 'PT Serif', serif;
+}
+.create-account-text {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+    position: relative;
+    top: 2.2rem;
+}
+.label {
+ display: flex;
+ justify-content: center;
+ position: relative;
+ top: 2rem;
+ margin-top: 2rem;
+}
+.input {
+ position: relative;
+ top: 2rem;
+ left: 6rem;
+ margin-top: 0.5rem;
+ width: 12rem;
+ height: 1.5rem;
+ border-radius: 5px;
+ border: 1px solid rgb(130, 112, 112);
+}
+.error-text {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 10px;
+    position: relative;
+    top: 2.5rem;
+    left: 10.4rem;
+}
+.menu-footer {
+    position: relative;
+    top: 2.5rem;
+}
+.user-submit {
+    width: 90px;
+    height: 45px;
+    background-color: #c3bdbc;
+    color: white;
+    border-radius: 50px;
+    margin-top: 5.5rem;
+    border: none;
+    font-size: 17px;
+    border: 1px solid rgb(130, 112, 112);
+    position: relative;
+    left: 9rem;
+    cursor: pointer;
+}
+
+.account-created {
+   text-align: center;
+}
+
+.guide-text {
+    position: relative;
+    top: 1rem;
+}
+.order-history-section {
+    position: relative;
+    top: 0.5rem;
+    height: 14rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.no-items-text {
+    position: relative;
+    top: 5rem;
+}
+
+.prod-items {
+    display: flex;
+    justify-content: space-around;
+}
+.price-history2 {
+    position: relative;
+    right: 5px;
+}
+.price-history3 {
+    position: relative;
+    right: 3px;
+}
+.price-history4 {
+    position: relative;
+    right: 12px;
+}
+.price-history5 {
+    position: relative;
+    right: 3px;
+}
+.price-history6 {
+    position: relative;
+    left: 1px;
+}
+.sign-out-btn {
+    width: 90px;
+    height: 45px;
+    background-color: #c3bdbc;
+    color: white;
+    border-radius: 50px;
+    margin-top: 5.5rem;
+    border: none;
+    font-size: 17px;
+    border: 1px solid rgb(130, 112, 112);
+    cursor: pointer;
+    position: relative;
+    bottom: 3rem;
+}
+.sign-out-footer {
+    position: relative;
+    bottom: 1.8rem;
 }

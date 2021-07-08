@@ -1,3 +1,4 @@
+import { onlinePurchased } from './coffe-actions';
 import * as actionTypes from './coffe-types';
 
 
@@ -11,7 +12,8 @@ const INITAL_STATE = {
         online: false
        },
     orderNumber: null,
-    onlinePurchased: []
+    onlinePurchased: [],
+    timer: null
 }
 
 let userStatus = INITAL_STATE.user
@@ -72,27 +74,29 @@ const coffeReducer = (state = INITAL_STATE, action) => {
 
 
 
-
-
-
-            
             case actionTypes.SIGN_IN:
 
                 return {...state, user: action.payload}
                 
         
 
-
-
-
-
-
         case actionTypes.SIGN_OUT:
 
     
             return {...state, user: {
                 online: false
-               }}
+               },
+               onlinePurchased: []
+            }
+
+
+
+
+
+
+            case actionTypes.ADD_TIMER:
+
+                return {...state, timer: action.payload}
 
 
 

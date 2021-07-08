@@ -84,4 +84,12 @@ export const onlinePurchased = (item) => {
     };
 };
 
+export const addTimer = (item) => {
+    return {
+        type: actionTypes.ADD_TIMER,
+        payload: item,
+    };
+};
+
+
 

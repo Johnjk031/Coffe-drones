@@ -10,3 +10,4 @@ export const SIGN_OUT = "SIGN_OUT"
 export const ADD_ORDER_NUMBER = "ADD_ORDER_NUMBER"
 
 export const ONLINE_PURCHASED = "ADD_ONLINE_PURCHASE"
+export const ADD_TIMER = "ADD_TIMER"
