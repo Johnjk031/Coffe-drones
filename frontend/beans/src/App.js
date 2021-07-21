@@ -4,7 +4,7 @@ import "./App.css"
 import Nav from './components/Navbar/Navbar';
 
 
-// all paths & routing avalible in "Navbar.js"
+// all paths & routing avalible in "Navbar.js" 
 
 
 function App() {
