@@ -1,4 +1,8 @@
 const Validation = (values) => {
+    
+    
+    // collect unvalid input values & create relevant responce
+    
     let errors={}
 
     if(!values.fullname) {

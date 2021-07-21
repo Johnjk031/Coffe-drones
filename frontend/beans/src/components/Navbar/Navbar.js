@@ -7,8 +7,8 @@ import MyProfile from '../my-profile';
 import MyStatus from '../order-status';
 import Home from '../landing-page';
 import CartStatus from '../cart'
-import open from '../bars-solid.svg'
-import closed from '../times-solid.svg'
+import open from '../svgs/bars-solid.svg'
+import closed from '../svgs/times-solid.svg'
 import Form from '../forms';
 import SignedUp from '../signUpSuccess';
 
@@ -18,30 +18,23 @@ import SignedUp from '../signUpSuccess';
 
 const Nav = () => {
 
+// open the menu
 const [openMenu, setOpenMenu] = useState(false)
-const [button, setButton] = useState(true)
 
 
-
-
-
-
+// close the menu
 const closeMenu = () => {
   setOpenMenu(false)
 }
 
 
 
+// all routing 
 
   return (
     <Router className="Route-app" id="root">
-      {/*  <Coffemenu /> */}
-
- <section className={button ? "shown" : "closed-menu"}>
-
-{/*          <img src={open} alt="open" />     */}
- 
- </section>
+  
+   {/*     open menu on button, close on pressing links           */}
 
    <section className={openMenu ? "open-menu" : "closed-menu"}>
    <ul className="menu-link-list">
@@ -56,9 +49,14 @@ const closeMenu = () => {
    </ul>
    </section>
 
+{/*     classlist toggle (the react way) on button         */}
+
    <section onClick={() => setOpenMenu(!openMenu)} className="navbar-secton">
    <article>{openMenu ? <img className="img-closed" src={closed} alt="closed" /> : <img className="img-open" src={open} alt="open" />}</article>
    </section>
+
+
+{/*     the route paths & all main components          */}
 
  <section className={openMenu ? "closed-menu" : "open-route"}>
  <Route path="/menu" component={Coffemenu} exact>

@@ -4,10 +4,11 @@ import Modal from 'react-modal'
 import CartStatus from './cart'
 import './css/coffemenu.css'
 import { connect } from 'react-redux'
-import bag from './bag.svg'
+import bag from './svgs/bag.svg'
 
 const ModalFunction = ( {cart} ) => {
    
+    // setting count on cartitems 
    const [cartCount, setCartCount] = useState(0)
    
    useEffect(() => {
@@ -20,23 +21,26 @@ const ModalFunction = ( {cart} ) => {
    }, [cart, cartCount]);
    
 
-
+    // usestate to set modal (displayed cartitems) open / closed 
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
    return(
     <section>
+
+    <button className="modalbtn" onClick={ () => setModalIsOpen(true) }><img className="modal-img" src={bag} alt="bag" /><span className="module-count">{cartCount}</span></button>
     
-    <button className="modalbtn" onClick={ () => setModalIsOpen(true) }><img className="modal-img" src={bag} alt="bag" /><button className="module-count">{cartCount}</button></button>
-    
+    {/* installed module */}
     <Modal isOpen={modalIsOpen} onRequestClose={ () => setModalIsOpen(false)} className={modalIsOpen ? "modal" : "hide"}>
      
-
+{/* cart component displayed while modal 'isOpen' */}
      <CartStatus />
     </Modal>
     
     </section>
     )
 }
+
+ // calling redux states
 
 const mapStateToProps = state => {
 return {

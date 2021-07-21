@@ -6,6 +6,7 @@ import './css/coffemenu.css'
 
 const CartItem = ({ itemData, adjustQty }) => {
 
+// storeing chosen amounts of selected coffe
 const [input, setInput] = useState(itemData.qty)
 
 const onChangeHandler = (e) => {
@@ -13,8 +14,7 @@ const onChangeHandler = (e) => {
     adjustQty(itemData.id, e.target.value)
 }
 
-
-
+// returning choosen coffe drinks & number input to adjust quantity
 return (
 <section className="test">
     <article className="cart-item">
@@ -38,6 +38,7 @@ return (
 )
 }
 
+// import redux functions
 
 const mapDispatchToProps = dispatch => {
     return {

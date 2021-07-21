@@ -1,5 +1,10 @@
 import * as actionTypes from './coffe-types'
-import axios from 'axios'
+
+
+
+
+// info about actiontypes avalible in the reducer
+
 
 export const addToCart = (itemID) => {
     return {
@@ -84,12 +89,27 @@ export const onlinePurchased = (item) => {
     };
 };
 
-export const addTimer = (item) => {
+export const addTime = (item) => {
     return {
-        type: actionTypes.ADD_TIMER,
+        type: actionTypes.ADD_TIME,
         payload: item,
     };
 };
+
+export const startTime = (item) => {
+    return {
+        type: actionTypes.START_TIME,
+        payload: item,
+    };
+};
+
+export const tick = (item) => {
+    return {
+        type: actionTypes.TICK,
+        payload: item,
+    };
+};
+
 
 
 

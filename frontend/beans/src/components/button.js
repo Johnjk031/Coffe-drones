@@ -4,7 +4,8 @@ import { addToCart } from "../redux/coffe/coffe-actions"
 import './css/coffemenu.css'
 
 const Button = ({ addToCart, productData }) => {
-  console.log(productData)
+  
+    // adding chosen item to cart 
 
     return(
       <section>
@@ -14,6 +15,8 @@ const Button = ({ addToCart, productData }) => {
       </section>
     )
   }
+
+  // calling redux functions
 
   const mapDispatchToProps = dispatch => {
     return {

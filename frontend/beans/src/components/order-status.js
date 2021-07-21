@@ -8,10 +8,10 @@ import OrderConfirm from './order-confirm'
 
 const MyStatus = ({purchased}) => {
 
-if (purchased.length >= 1) {
+// conditional rendering, depending on redux store status
 
-
-      return (
+  if (purchased.length >= 1) {
+     return (
         <div>
           <OrderConfirm />
         </div>
@@ -25,6 +25,8 @@ if (purchased.length >= 1) {
   }
 
   }  
+
+  // calling redux state
 const mapStateToProps = state => {
     return {
       purchased: state.drink.purchased 

@@ -1,8 +1,8 @@
 import React from 'react'
 import './our-cofe.css'
-import header from './graphics-header.svg'
+import header from './svgs/graphics-header.svg'
 import eva from './eva.jpeg'
-import footer from './graphics-footer.svg'
+import footer from './svgs/graphics-footer.svg'
 
 
 const About = () => {

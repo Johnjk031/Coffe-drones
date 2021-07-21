@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { signOut } from '../redux/coffe/coffe-actions';
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import store from '../redux/store'
 import './profile.css'
-import header from './graphics-header.svg'
-import footer from './graphics-footer.svg'
+import header from './svgs/graphics-header.svg'
+import footer from './svgs/graphics-footer.svg'
 
 
 const SignedUp = ({ signOut }) => {
 
+    // use history to "route" back when sign out
     const history = useHistory();
-    let testVar = store.getState().drink
-   
 
+    // access state from redux store
+    let drink = store.getState().drink
+   
+    // when user sign out
     let logOut = (e) => {
         e.preventDefault();
         signOut()
@@ -32,12 +35,15 @@ const SignedUp = ({ signOut }) => {
             <section className="account-created">
             <img src={header} alt="header" />
                 <h2>Kontot är skapat</h2>
-                <p className="guide-text">Välkommen {testVar.user.fullname}</p>
+                <p className="guide-text">Välkommen {drink.user.fullname}</p>
                 <p className="guide-text">Du finner dina köp nedan:</p>
-                <section className="order-history-section">
-                {testVar.onlinePurchased >= 0 ? <p className="no-items-text">Du har inga köp registrerade hos oss</p> : ''}
 
-                {testVar.onlinePurchased.map(prod => (
+                {/* no items purchased text (if necessary) */}
+                <section className="order-history-section">
+                {drink.onlinePurchased >= 0 ? <p className="no-items-text">Du har inga köp registrerade hos oss</p> : ''}
+              
+                {/* map all online purchased items */}
+                {drink.onlinePurchased.map(prod => (
        <section key={prod.id} className="prod-history">
          <article className="prod-items">
         <p>{prod.qty} {prod.coffe}...</p>
@@ -58,6 +64,8 @@ const SignedUp = ({ signOut }) => {
         
     )
 }
+
+// calling redux functions
 const mapStateToProps = dispatch => {
     return {
    

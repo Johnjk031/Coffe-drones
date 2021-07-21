@@ -1,45 +1,60 @@
 import React, {useState, useEffect} from 'react'
 import './confirm.css'
+import store from '../redux/store'
+
 
 
 const Timer = (props) => {
 
-    const {initialMinute = 20,initialSeconds = 59} = props;
-    const [ minutes, setMinutes ] = useState(initialMinute);
-    const [seconds, setSeconds ] =  useState(initialSeconds);
+    // access state from redux store
+    let time = store.getState().drink.time
+
+
+    // declaring initial values to display timer
+    const {initialMinute = time} = props;
+    
+    // usestate to change text make counter reach 0
+    const [ready, setReady] = useState(false)
+
+    // set minutes to redux "time" state 
+    const [minutes, setMinutes] = useState(initialMinute);
+
+    // effect & interval to countdown minutes
     useEffect(()=>{
     let myInterval = setInterval(() => {
-            if (seconds > 0) {
-                setSeconds(seconds - 1);
+            if (minutes > 0) {
+                setMinutes(store.getState().drink.time);
             }
-            if (seconds === 0) {
-                if (minutes === 0) {
-                    clearInterval(myInterval)
-                } else {
-                    setMinutes(minutes - 1);
-                    setSeconds(59);
-                }
-            } 
+            // change text when counter is at 0
+            if (minutes === 0) {
+                setReady(true)
+            }
         }, 1000)
         return ()=> {
             clearInterval(myInterval);
           };
     });
     
-    
 
 
 
 
     return(
+        
         <div>
-        { minutes === 0 && seconds === 0
-            ? null
-            : <h1 className="timer"> {minutes} minuter</h1> 
+        {ready ? <p className="timer">Din kopp har anlänt</p> 
+        :
+        <p className="timer">{minutes} minuter</p>
         }
+        
         </div>
         
     )
 }
 
+
+
+
+
 export default Timer
+

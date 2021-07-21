@@ -1,14 +1,15 @@
 import React from "react"
 import Timer from "./timeout";
-import drone from "./drone.svg"
+import drone from "./svgs/drone.svg"
 import './confirm.css'
 import store from '../redux/store'
+import { Link } from 'react-router-dom'
 
 const OrderConfirm = () => {
 
+   // display order number from redux store
+    let orderNumber = store.getState().drink.orderNumber
    
-    let testVar = store.getState().drink.orderNumber
-    
 
 
 
@@ -16,7 +17,7 @@ const OrderConfirm = () => {
     return(
         <section className="main-confirm">
             <section className="ordernumber">
-            <p className="order-text">Ordernummer: #{testVar}</p>
+            <p className="order-text">Ordernummer: #{orderNumber}</p>
             </section>
 
           <img className="drone" src={drone} alt="drone" />
@@ -31,9 +32,9 @@ const OrderConfirm = () => {
       <Timer />
       </section>
 
-
+    {/* linking cs back to main page */}
         <section className="button-section">
-       <button className="confirm-btn">Ok, cool!</button>
+       <button className="confirm-btn"><Link className="link" to={{pathname: "/"}}>Perfekt</Link></button>
        </section>
 
         </section>

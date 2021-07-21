@@ -5,7 +5,7 @@ import './confirm.css'
 const NoItems = () => {
 
   
-
+// in case no items have been purchased
 
     return(
         <section className="main-confirm">

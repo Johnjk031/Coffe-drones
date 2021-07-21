@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import './css/coffemenu.css'
 import Button from './button';
-import header from './graphics-header.svg'
-import footer from './graphics-footer.svg'
-import { useAxiosGet } from './axiosFetch'
-
+import header from './svgs/graphics-header.svg'
+import footer from './svgs/graphics-footer.svg'
 import ModalFunction from './Modal';
 import axios from 'axios';
 import { addToProducts } from '../redux/coffe/coffe-actions';
@@ -14,13 +12,16 @@ import { useDispatch } from 'react-redux'
 
 const Coffemenu = ( { products, addToProducts }) => {
   
+  // coffe details (json)
   const url = 'http://localhost:8080/api/coffe'
 
+  // usestate to set products
   const [product, setProducts] = useState([])
 
-const dispatch = useDispatch();
+  // use dispatch to store fetched products
+  const dispatch = useDispatch();
 
-
+// fetch json data to redux store & setproducts
   useEffect(() => {
     axios.get(url)
     .then(response => {
@@ -31,36 +32,28 @@ const dispatch = useDispatch();
 
 
 
-  console.log(product)
-
-
 
 
   return(
-
-
 
 <section className="main-menu">
 
 <img src={header} alt="header" />
 
-{/*
-<section className="bag-article">
-<img src={bag} alt="bag" />
-</section>
-*/}
-
+{/*/ cart */}
  <section> 
 <ModalFunction />
-
-
-
 </section> 
+
+{/*/ mapping out relevant info from json */}
      {product.map(prod => (
        <section key={prod.id} className="prod-articles">
+         
+          {/*/ adding chosen item to cart */}
          <article className="menu-btn">
          <Button productData={prod} />
          </article>
+
          <article>
          <p className="menu-drinks">{prod.coffe}</p>
          <p className="menu-description">{prod.description}</p>
@@ -79,7 +72,7 @@ const dispatch = useDispatch();
 }
 
 
-
+ // calling redux functions
 const mapDispatchToProps = dispatch => {
   return {
       addToProducts: (id) => dispatch(addToProducts(id))

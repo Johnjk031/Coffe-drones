@@ -1,24 +1,26 @@
 import React, {useState, useEffect} from 'react'
 import { connect } from "react-redux"
 import CartItem from './cartitem'
-import { useHistory } from 'react-router-dom';
-import { addPurchase, addOrderNumber, onlinePurchased } from '../redux/coffe/coffe-actions';
+import { addPurchase, addOrderNumber, onlinePurchased, addTime, startTime, tick } from '../redux/coffe/coffe-actions';
 import { Link } from 'react-router-dom'
 import './css/cartitem.css'
 
 
-const CartStatus = ( {cart, addPurchase, addOrderNumber, onlinePurchased} ) => {
+
+
+const CartStatus = ( {cart, addPurchase, addOrderNumber, onlinePurchased, addTime, tick} ) => {
 
 
     
-    let history = useHistory();
+   
 
     
+  // declared states for setting total price
 
     const [totalPrice, setTotalPrice] = useState(0);
     const[totalItem, setTotalItems] = useState(0);
-    const [isBought, setIsbought] = useState(false);
     
+    // effect for total price 
     useEffect(() => {
     let items = 0;
     let price = 0;
@@ -42,7 +44,7 @@ const CartStatus = ( {cart, addPurchase, addOrderNumber, onlinePurchased} ) => {
     }, [cart, totalPrice, setTotalPrice, setTotalItems])
     
 
-
+    // random string for ordernumber
 
     function getRandomString(length) {
         var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -54,30 +56,53 @@ const CartStatus = ( {cart, addPurchase, addOrderNumber, onlinePurchased} ) => {
     }
 
 
+    
 
-
+// buy button
   
     let buy = () => {
        if (totalItem >= 1) {
 
-       addPurchase()
-       addOrderNumber(getRandomString(8))
-       onlinePurchased()
-            }
-    }
-
-
+    // redux store:
     
-    let callFunctionTwo = () => {
-        history.push("/orderstatus");
+    //adding bought product 
+       addPurchase()
+    
+       // adding ordernumber
+       addOrderNumber(getRandomString(8))
+    
+       // adding user history
+       onlinePurchased()
+    
+       //  reset timer
+       addTime()
+
+        // start timer
+       const interval = setInterval(() => {
+        
+        // set interval on function "tick" & timeout interval on clering
+        tick()
+          setTimeout(() => {
+            clearInterval(interval)
+        }, 588000);
     }
+    , 60000);
+            }
+
+
+
+
+    }
+
+
 
     return(
         <section>
             <section className="your-order">
             <h1>Din beställning</h1>
             </section>
-
+       
+       {/* selected items mapped from cartitem.js */}
         <section className="selected-coffe"> 
         { cart.map((item) =>(
         <CartItem key={item.id} itemData={item}/>
@@ -89,30 +114,23 @@ const CartStatus = ( {cart, addPurchase, addOrderNumber, onlinePurchased} ) => {
        <p className="total-price">Total......................................... {totalPrice}</p>
         </section>
 
+        {/* linking to new path & call the redux functions here */}
         <section className="link-section">
-        <button className="buy-link"><Link to={{pathname: '/orderstatus', state: { isBought }}} onClick={buy} style={{ textDecoration: 'none' }} className="link-text">Take my money</Link></button>
-        {/*   
-        <button onClick={buy}>Take my money</button>
-        <button onClick={callFunctionTwo}>go next</button>
-        */}
+        <button className="buy-link"><Link to={{pathname: '/orderstatus'}} onClick={buy} style={{ textDecoration: 'none' }} className="link-text">Take my money</Link></button>
         </section>
      
         
     
-        
-    {/*<Router>
-   <Switch>
-
-    <Route exact path="/" component={()=>isBought?<MyStatus/> : <NoItems/>} />
-    </Switch>
-    </Router>*/}
 
         </section>
     )
 }
+// import redux states & functions
+
 const mapStateToProps = state => {
     return {
-        cart: state.drink.cart
+        cart: state.drink.cart,
+        time: state.drink.time
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -121,7 +139,13 @@ const mapDispatchToProps = dispatch => {
         
         addOrderNumber: (id) => dispatch(addOrderNumber(id)),
 
-        onlinePurchased: (id) => dispatch(onlinePurchased(id))
+        onlinePurchased: (id) => dispatch(onlinePurchased(id)),
+
+        addTime: (id) => dispatch(addTime(id)),
+
+        startTime: (id) => dispatch(startTime(id)),
+
+        tick: (id) => dispatch(tick(id))
     }
 }
 

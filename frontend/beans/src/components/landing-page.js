@@ -1,15 +1,15 @@
 import React from 'react'
 import './css/landingpage.css'
-import bean from './airbean-landing.svg'
-import right from './intro-graphic-right.svg'
-import left from './intro-graphic-left.svg'
+import bean from './svgs/airbean-landing.svg'
+import right from './svgs/intro-graphic-right.svg'
+import left from './svgs/intro-graphic-left.svg'
 
 
 class Home extends React.Component {
     
 render() {
  
-
+    // just a bunch of SVG's in this component
 
     return(
         <div className="grid-landingpage">

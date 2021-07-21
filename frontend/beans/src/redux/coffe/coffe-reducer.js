@@ -1,9 +1,9 @@
-import { onlinePurchased } from './coffe-actions';
 import * as actionTypes from './coffe-types';
 
 
+// initial state to store
 const INITAL_STATE = {
-    products: [], // id, coffe, description, price
+    products: [], 
     loading: false,
     cart: [],
     currentItem: null,
@@ -13,16 +13,19 @@ const INITAL_STATE = {
        },
     orderNumber: null,
     onlinePurchased: [],
-    timer: null
+
+   
+    isOn: false,
+    time: 10 
 }
 
-let userStatus = INITAL_STATE.user
 
 
-const coffeReducer = (state = INITAL_STATE, action) => {
+const coffeReducer = (state = INITAL_STATE, action, props) => {
     switch (action.type) {
 
         
+        // adding product to cart & set quantity to +1
          case actionTypes.ADD_TO_CART:
         
          const item = state.products.find((prod) => prod.id === action.payload.id)
@@ -42,6 +45,8 @@ const coffeReducer = (state = INITAL_STATE, action) => {
             };
 
 
+
+        // changing status on item from in cart to purchased & resets cart
             case actionTypes.ADD_PURCHASE:
         
             return {
@@ -54,7 +59,7 @@ const coffeReducer = (state = INITAL_STATE, action) => {
             } 
      
 
-        
+        // removing items from cart
             case actionTypes.REMOVE_FROM_CART:
             return {
                 ...state,
@@ -63,6 +68,7 @@ const coffeReducer = (state = INITAL_STATE, action) => {
             };
 
 
+        // adjust quantity on selected items
         case actionTypes.ADJUST_QTY:
             return {
                 ...state,
@@ -73,13 +79,13 @@ const coffeReducer = (state = INITAL_STATE, action) => {
             };
 
 
-
+        // sign cs in & chamge state on user
             case actionTypes.SIGN_IN:
 
                 return {...state, user: action.payload}
                 
         
-
+       // sign cs out & reset "onlinePurchased" state
         case actionTypes.SIGN_OUT:
 
     
@@ -92,21 +98,38 @@ const coffeReducer = (state = INITAL_STATE, action) => {
 
 
 
+           
+        // reset timer
+            case actionTypes.ADD_TIME:
+
+                return {...state, time: INITAL_STATE.time}
 
 
-            case actionTypes.ADD_TIMER:
+            // change bolean value to true
+                case actionTypes.START_TIME:
+                return {
+                    
+                        ...state,
+                        isOn: true,
+                        offset: action.offset,
+                      };
+                 
+            // counting down timer 
+                      case actionTypes.TICK:
+                        return {
+                          ...state,
+                          time: state.time - 1,
+                          offset: action.time
+                        };
+             
+                 
 
-                return {...state, timer: action.payload}
 
 
 
 
-
-
-
-
-
-
+     
+        // replace state of "currentItem" depending on action
         case actionTypes.LOAD_CURRENT_ITEM:
             return {
                 ...state,
@@ -114,18 +137,21 @@ const coffeReducer = (state = INITAL_STATE, action) => {
             };
 
       
-          
+         
+            // replace state of "products" depending on action - the fetch goes here
             case actionTypes.ADD_TO_PRODUCTS: 
             
             return {...state, products: action.payload}
         
             
-
+        
+            // replace state of "orderNumber" depending on action
             case actionTypes.ADD_ORDER_NUMBER: 
             
             return {...state, orderNumber: action.payload}
 
 
+          // // replace state of "onlinePurchased" to the state of "purchased" (if user is online when purchasing)
             case actionTypes.ONLINE_PURCHASED: 
             
             if (state.user.online
@@ -134,14 +160,12 @@ const coffeReducer = (state = INITAL_STATE, action) => {
             }
             
 
-
+         
         default:
             return state;
     
 }
 }
   
-export const checkUser = () => {
-    return userStatus;
-} 
+
 export default coffeReducer; 
