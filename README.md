@@ -6,4 +6,4 @@ Simple coffe workshop, build in React/Redux.
 
 # Instructions:
 
-Open the "backend" folder & "beans" folder in the terminal. Type "npm start" - and you are good to go.
+Open the "backend" folder & "beans" folder in the terminal. Type "npm start" on both folders - and you are good to go.
