@@ -2,8 +2,8 @@
 
 # AirBean
 
-Simple coffe workshop, build in React/Redux. 
+Simple coffe workshop, built in React/Redux. 
 
 # Instructions:
 
-Open the "backend" folder & "beans" folder in the terminal. Type "npm start" on both folders - and you are good to go.
+Open the "backend" folder & "beans" folder in the terminal. Type "npm start" / "yarn start" etc in both folders - and you are good to go.
