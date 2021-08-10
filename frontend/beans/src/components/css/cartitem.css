@@ -54,8 +54,6 @@ input[type=number]:focus {
   height: 55px;
   border-radius: 50px;
   border: none;
-  position: fixed;
-  bottom: 11rem;
 }
 
 .selected-coffe {
